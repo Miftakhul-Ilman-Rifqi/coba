@@ -19,20 +19,45 @@ self.addEventListener('install', function (event) {
     );
 });
 
+
+
+
 self.addEventListener('fetch', function (event) {
-    event.respondWith(
-        caches.match(event.request).then(function (response) {
-            return response || fetch(event.request).then(function (r) {
-                return caches.open(CACHE_NAME).then(function (cache) {
-                    cache.put(event.request, r.clone());
-                    return r;
-                });
+    var request = event.request;
+    var url = new URL(request.url);
+
+    // Cek skema permintaan
+    if (url.protocol === 'http:' || url.protocol === 'https:') {
+      event.respondWith(
+        caches.match(request).then(function (response) {
+          return response || fetch(request).then(function (r) {
+            // Buka cache dan simpan respons
+            return caches.open(CACHE_NAME).then(function (cache) {
+              cache.put(request, r.clone());
+              return r;
             });
+          });
         }).catch(function () {
-            return caches.match('/coba/index.html');
+          return caches.match('/coba/index.html');
         })
-    );
-});
+      );
+    }
+  });
+
+// self.addEventListener('fetch', function (event) {
+//     event.respondWith(
+//         caches.match(event.request).then(function (response) {
+//             return response || fetch(event.request).then(function (r) {
+//                 return caches.open(CACHE_NAME).then(function (cache) {
+//                     cache.put(event.request, r.clone());
+//                     return r;
+//                 });
+//             });
+//         }).catch(function () {
+//             return caches.match('/coba/index.html');
+//         })
+//     );
+// });
 
 self.addEventListener('activate', function (event) {
     var cacheWhitelist = [CACHE_NAME];
