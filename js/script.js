@@ -11,6 +11,37 @@ if ('serviceWorker' in navigator) {
   }
 
 
+let deferredInstallPrompt = null;
+
+window.addEventListener('beforeinstallprompt', (event) => {
+  // Menyimpan event untuk digunakan nanti
+  deferredInstallPrompt = event;
+  
+  // Tampilkan pemberitahuan instalasi atau tombol instalasi di UI
+  // Misalnya, munculkan tombol "Install App" atau tampilkan notifikasi instalasi
+  
+  // Contoh tampilan tombol instalasi
+  const installButton = document.getElementById('install-button');
+  installButton.style.display = 'block';
+  
+  // Tangani klik tombol instalasi
+  installButton.addEventListener('click', () => {
+    // Memanggil prompt instalasi
+    deferredInstallPrompt.prompt();
+    
+    // Menunggu hasil prompt
+    deferredInstallPrompt.userChoice.then((choiceResult) => {
+      if (choiceResult.outcome === 'accepted') {
+        console.log('Pengguna setuju untuk menginstal');
+      } else {
+        console.log('Pengguna menolak untuk menginstal');
+      }
+      
+      // Setelah pengguna membuat keputusan, event deferredInstallPrompt dapat dihapus
+      deferredInstallPrompt = null;
+    });
+  });
+});
 
 // if ('serviceWorker' in navigator) {   //cek browser support serviceWorker
 //     navigator.serviceWorker.register('/coba/service-worker.js',
