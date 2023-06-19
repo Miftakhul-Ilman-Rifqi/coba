@@ -1,0 +1,111 @@
+/* Efek Scroll Halus */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(to bottom right, rgb(233, 255, 255) 42%, rgba(191, 228, 255, 1) 59%);
+    font-family: "Rubik";
+    overflow-y: scroll;
+}
+
+@font-face {
+    font-family: "Rubik";
+    src: url(../font/Rubik-VariableFont_wght.ttf) format("truetype");
+}
+
+.container {
+    margin-top: 5px;
+}
+
+.question {
+    display: inline-block;
+    box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.2);
+    transition: transform 0.5s, box-shadow 0.5s;
+}
+
+.wrapper.shadow-lg p-2.rounded-5 {
+    box-shadow: 0 0 7px 0 rgba(0, 0, 0, 0.2);
+    margin-left: -20px;
+    margin-right: -20px;
+}
+
+.form-check {
+    margin-left: 20px;
+}
+
+.questions {
+    display: flex;
+    overflow-x: auto;
+}
+
+.table {
+    transition: transform 0.5s, box-shadow 0.5s;
+}
+
+.table:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.2);
+}
+
+.form-floating {
+    transition: transform 0.5s, box-shadow 0.5s;
+}
+
+.form-floating:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.2);
+}
+
+.question {
+    transition: transform 0.5s, box-shadow 0.5s;
+}
+
+.question:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px 0 rgba(0, 0, 0, 0.2);
+}
+
+.table-responsive {
+    padding-top: 5px;
+}
+
+th {
+    white-space: nowrap;
+}
+
+.form-check-input:checked+.form-check-label {
+    background: linear-gradient(to bottom right, rgb(227, 255, 255) 42%, rgba(191, 228, 255, 1) 59%);
+    /* Warna abu-abu */
+}
+
+.container {
+    max-width: 900px;
+    /* Lebar khusus yang lebih kecil */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sticky-th,
+.sticky-td {
+    position: sticky;
+    left: 0;
+}
+
+.table-container {
+    overflow-x: auto;
+}
+
+.wrapper {
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.table-wrapper {
+    height: 450px;
+    overflow-y: auto;
+}
