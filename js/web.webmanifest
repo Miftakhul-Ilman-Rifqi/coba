@@ -1,0 +1,17 @@
+{
+  "name": "Prioritas Lahan Kelapa Sawit",
+  "short_name": "SAW-PWA",
+  "description": "Penggunaan metode Simple Addtive Weight (SAW) untuk pengambilan keputusan terkait lahan yang menjadi prioritas",
+  "icons": [
+    {
+      "src": "/coba/assets/icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "start_url": "/coba/index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "categories": ["Decision Making"]
+}
